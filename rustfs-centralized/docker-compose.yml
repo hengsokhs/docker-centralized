@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  rustfs:
+    image: rustfs/rustfs:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      RUSTFS_ACCESS_KEY: "admin"
+      RUSTFS_SECRET_KEY: "admin"
+    volumes:
+      - rustfs_production_data:/data
+    command: --console-enable /data
+
+volumes:
+  rustfs_production_data:
